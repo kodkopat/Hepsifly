@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Domain.ViewModels"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Domain", "Hepsifly.Domain\Hepsifly.Domain.csproj", "{2D59F452-4C23-48D8-9DB4-F0B485B47F88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.EntityFramework", "Hepsifly.EntityFramework\Hepsifly.EntityFramework.csproj", "{7EC72E01-B8B2-4D25-8DEE-6713DF6252B7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Core", "Hepsifly.Core\Hepsifly.Core.csproj", "{5C208925-6EE7-4038-B14B-387FE8B93278}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Infrastructure", "Hepsifly.Infrastructure\Hepsifly.Infrastructure.csproj", "{1172BACB-9E21-4847-9B3B-EBE847E10DC8}"
@@ -41,10 +39,6 @@ Global
 		{2D59F452-4C23-48D8-9DB4-F0B485B47F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D59F452-4C23-48D8-9DB4-F0B485B47F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D59F452-4C23-48D8-9DB4-F0B485B47F88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7EC72E01-B8B2-4D25-8DEE-6713DF6252B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7EC72E01-B8B2-4D25-8DEE-6713DF6252B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7EC72E01-B8B2-4D25-8DEE-6713DF6252B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7EC72E01-B8B2-4D25-8DEE-6713DF6252B7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C208925-6EE7-4038-B14B-387FE8B93278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C208925-6EE7-4038-B14B-387FE8B93278}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C208925-6EE7-4038-B14B-387FE8B93278}.Release|Any CPU.ActiveCfg = Release|Any CPU

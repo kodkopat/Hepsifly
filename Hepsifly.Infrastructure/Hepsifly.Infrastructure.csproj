@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Hepsifly.Core\Hepsifly.Core.csproj" />
+    <ProjectReference Include="..\Hepsifly.Domain.Models\Hepsifly.Domain.Models.csproj" />
+    <ProjectReference Include="..\Hepsifly.Domain.ViewModels\Hepsifly.Domain.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

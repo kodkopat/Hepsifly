@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hepsifly.Domain.Models
 {
-    public class Category: BaseModel
+    public class Product : BaseModel
     {
         public string Name { get; set; }
     }
