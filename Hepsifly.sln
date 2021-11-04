@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Core", "Hepsifly.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Infrastructure", "Hepsifly.Infrastructure\Hepsifly.Infrastructure.csproj", "{1172BACB-9E21-4847-9B3B-EBE847E10DC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.DataAccess", "Hepsifly.DataAccess\Hepsifly.DataAccess.csproj", "{FB08205E-0485-4F77-B33A-5022BFC3BEFA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{1172BACB-9E21-4847-9B3B-EBE847E10DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1172BACB-9E21-4847-9B3B-EBE847E10DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1172BACB-9E21-4847-9B3B-EBE847E10DC8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB08205E-0485-4F77-B33A-5022BFC3BEFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB08205E-0485-4F77-B33A-5022BFC3BEFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB08205E-0485-4F77-B33A-5022BFC3BEFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB08205E-0485-4F77-B33A-5022BFC3BEFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

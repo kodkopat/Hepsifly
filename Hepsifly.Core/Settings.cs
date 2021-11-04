@@ -14,8 +14,7 @@ namespace Hepsifly.Core
         public class Database
         {
             public static string ConnectionString = settingsJson.Database.ConnectionString;
-            public static string Username = settingsJson.Database.Username;
-            public static string Password = settingsJson.Database.Password;
+
         }
         public class Redis
         {
