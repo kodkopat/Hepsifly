@@ -5,6 +5,16 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.API", "Hepsifly.API\Hepsifly.API.csproj", "{BD5F1D89-7AE7-4CDA-9EA4-967240724E47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Domain.Models", "Hepsifly.Domain.Models\Hepsifly.Domain.Models.csproj", "{8DE93A8F-6018-4B5A-A8EE-060446FC33E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Domain.ViewModels", "Hepsifly.Domain.ViewModels\Hepsifly.Domain.ViewModels.csproj", "{9D26058E-D36E-47C6-9E3E-B8393685C226}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Domain", "Hepsifly.Domain\Hepsifly.Domain.csproj", "{2D59F452-4C23-48D8-9DB4-F0B485B47F88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.EntityFramework", "Hepsifly.EntityFramework\Hepsifly.EntityFramework.csproj", "{7EC72E01-B8B2-4D25-8DEE-6713DF6252B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Core", "Hepsifly.Core\Hepsifly.Core.csproj", "{5C208925-6EE7-4038-B14B-387FE8B93278}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{BD5F1D89-7AE7-4CDA-9EA4-967240724E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD5F1D89-7AE7-4CDA-9EA4-967240724E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD5F1D89-7AE7-4CDA-9EA4-967240724E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE93A8F-6018-4B5A-A8EE-060446FC33E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE93A8F-6018-4B5A-A8EE-060446FC33E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE93A8F-6018-4B5A-A8EE-060446FC33E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE93A8F-6018-4B5A-A8EE-060446FC33E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D26058E-D36E-47C6-9E3E-B8393685C226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D26058E-D36E-47C6-9E3E-B8393685C226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D26058E-D36E-47C6-9E3E-B8393685C226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D26058E-D36E-47C6-9E3E-B8393685C226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D59F452-4C23-48D8-9DB4-F0B485B47F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D59F452-4C23-48D8-9DB4-F0B485B47F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D59F452-4C23-48D8-9DB4-F0B485B47F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D59F452-4C23-48D8-9DB4-F0B485B47F88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC72E01-B8B2-4D25-8DEE-6713DF6252B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC72E01-B8B2-4D25-8DEE-6713DF6252B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC72E01-B8B2-4D25-8DEE-6713DF6252B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC72E01-B8B2-4D25-8DEE-6713DF6252B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C208925-6EE7-4038-B14B-387FE8B93278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C208925-6EE7-4038-B14B-387FE8B93278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C208925-6EE7-4038-B14B-387FE8B93278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C208925-6EE7-4038-B14B-387FE8B93278}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
