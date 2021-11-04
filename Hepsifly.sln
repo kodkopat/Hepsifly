@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.EntityFramework", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Core", "Hepsifly.Core\Hepsifly.Core.csproj", "{5C208925-6EE7-4038-B14B-387FE8B93278}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hepsifly.Infrastructure", "Hepsifly.Infrastructure\Hepsifly.Infrastructure.csproj", "{1172BACB-9E21-4847-9B3B-EBE847E10DC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{5C208925-6EE7-4038-B14B-387FE8B93278}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C208925-6EE7-4038-B14B-387FE8B93278}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C208925-6EE7-4038-B14B-387FE8B93278}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1172BACB-9E21-4847-9B3B-EBE847E10DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1172BACB-9E21-4847-9B3B-EBE847E10DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1172BACB-9E21-4847-9B3B-EBE847E10DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1172BACB-9E21-4847-9B3B-EBE847E10DC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
