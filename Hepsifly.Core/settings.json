@@ -1,0 +1,11 @@
+{
+  "Database": {
+    "ConnectionString": "mongodb://192.168.1.218:27017",
+    "Username": "",
+    "Password": ""
+  },
+  "Redis": {
+    "Host": "localhost",
+    "Port": "6379"
+  }
+}
