@@ -10,8 +10,8 @@ namespace Hepsifly.Domain.Abstractions
     {
         IEnumerable<M> Get<M>();
         M Get<M>(string Id);
-        S Add<M, S>(M model);
-        S Update<M, S>(M Model);
+        string Add<M>(M model);
+        M Update<M>(M Model);
         bool Delete(string Id);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Hepsifly.Domain.Implementions;
+﻿using AutoMapper;
+using Hepsifly.Domain.Implementions;
 using Hepsifly.Domain.Models;
 using MongoDB.Driver;
 using System;
@@ -11,10 +12,14 @@ namespace Hepsifly.Domain
 {
     public class CategoryBusiness : BaseBusiness<Category>
     {
-
-        public override bool Delete(string Id)
+        public CategoryBusiness
+            (
+            MongoClient mongo,
+            IMapper mapper
+            ) : base(mongo, mapper)
         {
-            return base.Delete(Id);
         }
+
+
     }
 }

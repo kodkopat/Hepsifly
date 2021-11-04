@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Hepsifly.Core;
+using Hepsifly.Domain;
 using Hepsifly.Infrastructure.Automapper;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
@@ -14,7 +15,8 @@ namespace Hepsifly.Infrastructure.Dependencies
             services.AddSingleton(new MapperConfiguration(mc => mc.AddProfile(new MappingProfile())).CreateMapper());
             services.AddSingleton(new MongoClient(Settings.Database.ConnectionString));
             services.AddHttpContextAccessor();
-
+            services.AddScoped<CategoryBusiness>();
+            services.AddScoped<ProductBusiness>();
             return services;
         }
     }

@@ -9,5 +9,6 @@ namespace Hepsifly.Domain.ViewModels.Category
 {
     public class CategorySaveViewModel: BaseViewModelModel
     {
+        public string Name { get; set; }
     }
 }

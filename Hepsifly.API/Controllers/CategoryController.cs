@@ -1,4 +1,6 @@
-﻿using Hepsifly.Domain.Models;
+﻿using Hepsifly.Domain;
+using Hepsifly.Domain.Models;
+using Hepsifly.Domain.ViewModels.Category;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using System;
@@ -14,28 +16,26 @@ namespace Hepsifly.API.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-
+        private CategoryBusiness categoryBusiness;
         public CategoryController
              (
-
+            CategoryBusiness categoryBusiness
              )
         {
-
+            this.categoryBusiness = categoryBusiness;
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        public async Task<IEnumerable<CategoryGetViewModel>> Get() 
+            => categoryBusiness.Get<CategoryGetViewModel>();
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        public async Task<CategoryGetViewModel> Get(string Id)
+         => categoryBusiness.Get<CategoryGetViewModel>(Id);
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] CategorySaveViewModel model)
         {
+            var Id = categoryBusiness.Add(model);
+            return RedirectToAction("Get", new { Id });
         }
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
