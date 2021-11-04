@@ -1,4 +1,5 @@
 ﻿using Hepsifly.Domain.ViewModels.Base;
+using Hepsifly.Domain.ViewModels.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace Hepsifly.Domain.ViewModels.Category
     public class CategoryGetViewModel: BaseViewModelModel
     {
         public string Name { get; set; }
+        public ICollection<ProductGetViewModel> Products { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace Hepsifly.API.Controllers
         public async Task<IActionResult> Post([FromBody] CategorySaveViewModel model)
         {
             var Id = categoryBusiness.Add(model);
-            return CreatedAtRoute("Get", new { Id });
+            return RedirectToAction("Get", new { Id });
         }
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] CategorySaveViewModel model)

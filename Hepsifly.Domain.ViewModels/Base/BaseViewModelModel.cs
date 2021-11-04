@@ -9,7 +9,6 @@ namespace Hepsifly.Domain.ViewModels.Base
 {
     public class BaseViewModelModel
     {
-
         public string Id { get; set; }
     }
 }

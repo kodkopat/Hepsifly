@@ -13,12 +13,14 @@ namespace Hepsifly.Infrastructure.Automapper
         {
 
             #region Category
-            CreateMap<Category, CategoryGetViewModel>();
-            CreateMap<CategorySaveViewModel, Category>();
+            CreateMap<Category, CategoryGetViewModel>().ReverseMap();
+            CreateMap<CategorySaveViewModel, Category>().ReverseMap();
             #endregion
             #region Product
-            CreateMap<Product, ProductGetViewModel>();
-            CreateMap<ProductSaveViewModel, Product>();
+            CreateMap<Product, ProductGetViewModel>().ReverseMap();
+            CreateMap<ProductSaveViewModel, Product>().ReverseMap()
+                //  .ForMember(c=>c.Category,v=>v.MapFrom(t=>t.))
+                ;
             #endregion
         }
     }
