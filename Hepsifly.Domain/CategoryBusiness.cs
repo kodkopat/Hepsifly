@@ -30,8 +30,8 @@ namespace Hepsifly.Domain
         }
         public virtual IEnumerable<M> Get<M>()
             => mapper.Map<List<M>>(collection.Find<Category>(_ => true).ToList());
-        public virtual M Get<M>(string Id)
-            => mapper.Map<M>(collection.Find<Category>(Helpers.MakeExpression<Category>("Id", Id)).FirstOrDefault());
+        public virtual M Get<M>(string Id, string Name)
+            => mapper.Map<M>(collection.Find<Category>(c => c.Id == Id || c.Name == Name).FirstOrDefault());
         public virtual string Add<M>(M model)
         {
             var entity = mapper.Map<Category>(model);

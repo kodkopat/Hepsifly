@@ -15,7 +15,8 @@ namespace Hepsifly.Domain
     {
         private readonly MongoClient mongo;
         private IMongoDatabase database;
-        private IMongoCollection<Product> collection;
+        private IMongoCollection<Product> products;
+        private IMongoCollection<Category> categories;
         public IMapper mapper { get; }
         public ProductBusiness
             (
@@ -26,24 +27,25 @@ namespace Hepsifly.Domain
             this.mongo = mongo;
             this.mapper = mapper;
             this.database = mongo.GetDatabase("Hepsifly");
-            this.collection = database.GetCollection<Product>(nameof(Product));
+            this.products = database.GetCollection<Product>(nameof(Product));
+            this.categories = database.GetCollection<Category>(nameof(Category));
         }
         public virtual IEnumerable<M> Get<M>()
-            => mapper.Map<List<M>>(collection.Find<Product>(_ => true).ToList());
-        public virtual M Get<M>(string Id)
-            => mapper.Map<M>(collection.Find<Product>(x => x.Id == Id).FirstOrDefault());
+            => mapper.Map<List<M>>(products.Find<Product>(_ => true).ToList());
+        public virtual M Get<M>(string Id, string Name)
+            => mapper.Map<M>(products.Find<Product>(c => c.Id == Id || c.Name == Name).FirstOrDefault());
         public virtual string Add<M>(M model)
         {
             var entity = mapper.Map<Product>(model);
-            collection.InsertOne(entity);
+            products.InsertOne(entity);
             return entity.Id;
         }
         public virtual bool Delete(string Id)
-            => collection.DeleteOne(x => x.Id == Id).DeletedCount > 0;
+            => products.DeleteOne(x => x.Id == Id).DeletedCount > 0;
         public virtual string Update<M>(M Model)
         {
             var entity = mapper.Map<Product>(Model);
-            collection.ReplaceOne(x => x.Id == entity.Id, entity);
+            products.ReplaceOne(x => x.Id == entity.Id, entity);
             return entity.Id;
         }
     }

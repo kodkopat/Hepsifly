@@ -29,8 +29,8 @@ namespace Hepsifly.API.Controllers
         public async Task<IEnumerable<CategoryGetViewModel>> Get()
             => categoryBusiness.Get<CategoryGetViewModel>();
         [HttpGet("{Id}")]
-        public async Task<CategoryGetViewModel> Get(string Id)
-         => categoryBusiness.Get<CategoryGetViewModel>(Id);
+        public async Task<CategoryGetViewModel> Get(string Id, string Name)
+         => categoryBusiness.Get<CategoryGetViewModel>(Id, Name);
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CategorySaveViewModel model)
         {

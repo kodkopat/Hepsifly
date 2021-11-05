@@ -30,8 +30,8 @@ namespace Hepsifly.API.Controllers
         public async Task<IEnumerable<ProductGetViewModel>> Get()
             => productBusiness.Get<ProductGetViewModel>();
         [HttpGet("{Id}")]
-        public async Task<ProductGetViewModel> Get(string Id)
-         => productBusiness.Get<ProductGetViewModel>(Id);
+        public async Task<ProductGetViewModel> Get(string Id, string Name)
+         => productBusiness.Get<ProductGetViewModel>(Id, Name);
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] ProductSaveViewModel model)
         {
