@@ -8,10 +8,10 @@ namespace Hepsifly.Domain.Base
 {
     public interface IBaseBusiness<T> where T : class
     {
-        IEnumerable<M> Get<M>();
-        M Get<M>(string Id, string Name);
-        string Add<M>(M model);
-        string Update<M>(M Model);
+        IEnumerable<T> Get();
+        T Get(string Id, string Name);
+        string Add(T model);
+        string Update(T Model);
         bool Delete(string Id);
     }
 }

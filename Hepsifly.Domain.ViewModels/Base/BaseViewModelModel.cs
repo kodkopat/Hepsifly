@@ -1,4 +1,5 @@
 ﻿
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Hepsifly.Domain.ViewModels.Base
 {
     public class BaseViewModelModel
     {
-        public string Id { get; set; }
+        public ObjectId Id { get; set; }
     }
 }

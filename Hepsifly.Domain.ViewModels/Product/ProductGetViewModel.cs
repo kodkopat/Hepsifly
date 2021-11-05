@@ -11,6 +11,8 @@ namespace Hepsifly.Domain.ViewModels.Product
     public class ProductGetViewModel : BaseViewModelModel
     {
         public string Name { get; set; }
-       
+        public string Description { get; set; }
+        // public CategoryGetViewModel Category { get; set; }
+
     }
 }

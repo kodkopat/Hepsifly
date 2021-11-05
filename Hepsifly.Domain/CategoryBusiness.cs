@@ -28,23 +28,31 @@ namespace Hepsifly.Domain
             this.database = mongo.GetDatabase("Hepsifly");
             this.collection = database.GetCollection<Category>(nameof(Category));
         }
-        public virtual IEnumerable<M> Get<M>()
-            => mapper.Map<List<M>>(collection.Find<Category>(_ => true).ToList());
-        public virtual M Get<M>(string Id, string Name)
-            => mapper.Map<M>(collection.Find<Category>(c => c.Id == Id || c.Name == Name).FirstOrDefault());
-        public virtual string Add<M>(M model)
+
+        public IEnumerable<Category> Get()
         {
-            var entity = mapper.Map<Category>(model);
-            collection.InsertOne(entity);
-            return entity.Id;
+            throw new NotImplementedException();
         }
-        public virtual bool Delete(string Id)
-            => collection.DeleteOne(Helpers.MakeExpression<Category>("Id", Id)).DeletedCount > 0;
-        public virtual string Update<M>(M Model)
+
+        public Category Get(string Id, string Name)
         {
-            var entity = mapper.Map<Category>(Model);
-            collection.ReplaceOne(Helpers.MakeExpression<Category>("Id", entity.Id), entity);
-            return entity.Id;
+            throw new NotImplementedException();
+        }
+
+        public string Add(Category model)
+        {
+            collection.InsertOne(model);
+            return model.Id;
+        }
+
+        public string Update(Category Model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(string Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -2,6 +2,9 @@
 using Hepsifly.Core;
 using Hepsifly.Domain.Base;
 using Hepsifly.Domain.Models;
+using Hepsifly.Domain.ViewModels.Product;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -30,23 +33,34 @@ namespace Hepsifly.Domain
             this.products = database.GetCollection<Product>(nameof(Product));
             this.categories = database.GetCollection<Category>(nameof(Category));
         }
-        public virtual IEnumerable<M> Get<M>()
-            => mapper.Map<List<M>>(products.Find<Product>(_ => true).ToList());
-        public virtual M Get<M>(string Id, string Name)
-            => mapper.Map<M>(products.Find<Product>(c => c.Id == Id || c.Name == Name).FirstOrDefault());
-        public virtual string Add<M>(M model)
+        public virtual IEnumerable<Product> Get()
         {
-            var entity = mapper.Map<Product>(model);
-            products.InsertOne(entity);
-            return entity.Id;
+           
+
+            var ss = products.Aggregate()
+                      .Lookup("Category", "CategoryId", "_id", @as: "Category")
+                      .Unwind("Category")
+                    .As<BsonDocument>()
+                    .ToList()
+                    .ToJson()
+                    ;
+            return null;
+        }
+        public virtual Product Get(string Id, string Name)
+            => products.Find<Product>(c => c.Id == Id || c.Name == Name).FirstOrDefault();
+        public virtual string Add(Product model)
+        {
+            products.InsertOne(model);
+            return model.Id;
         }
         public virtual bool Delete(string Id)
             => products.DeleteOne(x => x.Id == Id).DeletedCount > 0;
-        public virtual string Update<M>(M Model)
+        public virtual string Update(Product Model)
         {
-            var entity = mapper.Map<Product>(Model);
-            products.ReplaceOne(x => x.Id == entity.Id, entity);
-            return entity.Id;
+            products.ReplaceOne(x => x.Id == Model.Id, Model);
+            return Model.Id;
         }
+
+
     }
 }

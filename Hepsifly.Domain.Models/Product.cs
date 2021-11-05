@@ -17,6 +17,7 @@ namespace Hepsifly.Domain.Models
         public string Description { get; set; }
         public double Price { get; set; }
         public CurrencyType Currency { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
         public string CategoryId { get; set; }
 
     }

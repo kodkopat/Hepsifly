@@ -27,19 +27,19 @@ namespace Hepsifly.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<ProductGetViewModel>> Get()
-            => productBusiness.Get<ProductGetViewModel>();
+        public async Task<IEnumerable<Product>> Get()
+            => productBusiness.Get();
         [HttpGet("{Id}")]
-        public async Task<ProductGetViewModel> Get(string Id, string Name)
-         => productBusiness.Get<ProductGetViewModel>(Id, Name);
+        public async Task<Product> Get(string Id, string Name)
+         => productBusiness.Get(Id, Name);
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] ProductSaveViewModel model)
+        public async Task<IActionResult> Post([FromBody] Product model)
         {
             var Id = productBusiness.Add(model);
             return RedirectToAction("Get", new { Id });
         }
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] ProductSaveViewModel model)
+        public async Task<IActionResult> Put([FromBody] Product model)
         {
             var Id = productBusiness.Update(model);
             return RedirectToAction("Get", new { Id });
