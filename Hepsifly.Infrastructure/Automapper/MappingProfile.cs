@@ -18,9 +18,7 @@ namespace Hepsifly.Infrastructure.Automapper
             #endregion
             #region Product
             CreateMap<Product, ProductGetViewModel>().ReverseMap();
-            CreateMap<ProductSaveViewModel, Product>().ReverseMap()
-                //  .ForMember(c=>c.Category,v=>v.MapFrom(t=>t.))
-                ;
+            CreateMap<ProductSaveViewModel, Product>().ReverseMap();
             #endregion
         }
     }
