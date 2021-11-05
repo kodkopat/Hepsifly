@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hepsifly.Domain.Abstractions
+namespace Hepsifly.Domain.Base
 {
     public interface IBaseBusiness<T> where T : class
     {

@@ -11,6 +11,6 @@ namespace Hepsifly.Domain.ViewModels.Product
     public class ProductSaveViewModel : BaseViewModelModel
     {
         public string Name { get; set; }
-        public CategoryGetViewModel Category { get; set; }
+        public string CategoryId { get; set; }
     }
 }
