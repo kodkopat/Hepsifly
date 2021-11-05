@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Hepsifly.Core\Hepsifly.Core.csproj" />
     <ProjectReference Include="..\Hepsifly.Domain.Models\Hepsifly.Domain.Models.csproj" />
   </ItemGroup>
 
