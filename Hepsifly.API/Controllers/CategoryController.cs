@@ -26,8 +26,8 @@ namespace Hepsifly.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Category>> Get()
-            => categoryBusiness.Get();
+        public async Task<IEnumerable<CategoryGetViewModel>> Get()
+            => categoryBusiness.Get<CategoryGetViewModel>();
         [HttpGet("{Id}")]
         public async Task<Category> Get(string Id, string Name)
          => categoryBusiness.Get(Id, Name);

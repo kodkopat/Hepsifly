@@ -27,8 +27,8 @@ namespace Hepsifly.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Product>> Get()
-            => productBusiness.Get();
+        public async Task<IEnumerable<ProductGetViewModel>> Get()
+            => productBusiness.Get<ProductGetViewModel>();
         [HttpGet("{Id}")]
         public async Task<Product> Get(string Id, string Name)
          => productBusiness.Get(Id, Name);

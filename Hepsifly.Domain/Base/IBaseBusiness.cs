@@ -8,7 +8,7 @@ namespace Hepsifly.Domain.Base
 {
     public interface IBaseBusiness<T> where T : class
     {
-        IEnumerable<T> Get();
+        IEnumerable<M> Get<M>();
         T Get(string Id, string Name);
         string Add(T model);
         string Update(T Model);

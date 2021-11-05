@@ -33,18 +33,17 @@ namespace Hepsifly.Domain
             this.products = database.GetCollection<Product>(nameof(Product));
             this.categories = database.GetCollection<Category>(nameof(Category));
         }
-        public virtual IEnumerable<Product> Get()
+        public virtual IEnumerable<M> Get<M>()
         {
-           
+
 
             var ss = products.Aggregate()
                       .Lookup("Category", "CategoryId", "_id", @as: "Category")
                       .Unwind("Category")
-                    .As<BsonDocument>()
-                    .ToList()
-                    .ToJson()
-                    ;
-            return null;
+                    .As<M>()
+                    .ToList();
+
+            return ss;
         }
         public virtual Product Get(string Id, string Name)
             => products.Find<Product>(c => c.Id == Id || c.Name == Name).FirstOrDefault();

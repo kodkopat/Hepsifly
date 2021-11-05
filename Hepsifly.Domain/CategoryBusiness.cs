@@ -29,7 +29,7 @@ namespace Hepsifly.Domain
             this.collection = database.GetCollection<Category>(nameof(Category));
         }
 
-        public IEnumerable<Category> Get()
+        public IEnumerable<M> Get<M>()
         {
             throw new NotImplementedException();
         }
