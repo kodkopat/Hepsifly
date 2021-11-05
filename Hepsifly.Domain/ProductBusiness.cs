@@ -3,6 +3,7 @@ using Hepsifly.Core;
 using Hepsifly.Domain.Base;
 using Hepsifly.Domain.Models;
 using Hepsifly.Domain.ViewModels.Product;
+using Microsoft.Extensions.Caching.Distributed;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
@@ -17,6 +18,7 @@ namespace Hepsifly.Domain
     public class ProductBusiness : IBaseBusiness<Product>
     {
         private readonly MongoClient mongo;
+        private readonly IDistributedCache cache;
         private IMongoDatabase database;
         private IMongoCollection<Product> products;
         private IMongoCollection<Category> categories;
@@ -24,11 +26,13 @@ namespace Hepsifly.Domain
         public ProductBusiness
             (
             MongoClient mongo,
-            IMapper mapper
+            IMapper mapper,
+            IDistributedCache cache
             )
         {
             this.mongo = mongo;
             this.mapper = mapper;
+            this.cache = cache;
             this.database = mongo.GetDatabase("Hepsifly");
             this.products = database.GetCollection<Product>(nameof(Product));
             this.categories = database.GetCollection<Category>(nameof(Category));
@@ -43,10 +47,29 @@ namespace Hepsifly.Domain
                 .As<M>()
                 .ToList();
 
-             
+
         }
         public virtual Product Get(string Id, string Name)
-            => products.Find<Product>(c => c.Id == Id || c.Name == Name).FirstOrDefault();
+        {
+            Product product = null;
+
+            if (string.IsNullOrEmpty(cache.GetString($"product.{Id}")))
+            {
+                product = products.Find<Product>(c => c.Id == Id || c.Name == Name).FirstOrDefault();
+                if (product != null)
+                {
+                    cache.SetString($"product.{Id}", Newtonsoft.Json.JsonConvert.SerializeObject(product), new DistributedCacheEntryOptions
+                    {
+                        SlidingExpiration = TimeSpan.FromMinutes(5),
+                        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+                    });
+                }
+            }
+            else
+                product = Newtonsoft.Json.JsonConvert.DeserializeObject<Product>(cache.GetString($"product.{Id}"));
+
+            return product;
+        }
         public virtual string Add(Product model)
         {
             products.InsertOne(model);

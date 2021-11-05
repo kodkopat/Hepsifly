@@ -37,13 +37,13 @@ namespace Hepsifly.API.Controllers
         public async Task<IActionResult> Post([FromBody] Category model)
         {
             var Id = categoryBusiness.Add(model);
-            return RedirectToAction("Get", new { Id });
+            return Created("Get", new { Id });
         }
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] Category model)
         {
             var Id = categoryBusiness.Update(model);
-            return RedirectToAction("Get", new { Id });
+            return Created("Get", new { Id });
         }
         [HttpDelete]
         public async Task<bool> Delete(string Id)

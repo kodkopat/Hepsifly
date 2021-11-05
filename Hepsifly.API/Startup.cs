@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft;
+using Hepsifly.Core;
+
 namespace Hepsifly.API
 {
     public class Startup
@@ -30,7 +32,12 @@ namespace Hepsifly.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hepsifly.API", Version = "v1" });
             });
             services.AddAppDependencies();
-            
+            services.AddMemoryCache();
+            services.AddStackExchangeRedisCache(c =>
+            {
+                c.Configuration = $"{Settings.Redis.Host}:{Settings.Redis.Port}";
+                c.InstanceName = "master";
+            });
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

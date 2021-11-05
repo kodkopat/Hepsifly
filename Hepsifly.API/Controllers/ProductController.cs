@@ -42,13 +42,13 @@ namespace Hepsifly.API.Controllers
         public async Task<IActionResult> Post([FromBody] Product model)
         {
             var Id = productBusiness.Add(model);
-            return RedirectToAction("Get", new { Id });
+            return Created("Get", new { Id });
         }
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] Product model)
         {
             var Id = productBusiness.Update(model);
-            return RedirectToAction("Get", new { Id });
+            return Created("Get", new { Id });
         }
         [HttpDelete]
         public async Task<bool> Delete(string Id)
