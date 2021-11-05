@@ -25,16 +25,19 @@ namespace Hepsifly.API.Controllers
              )
         {
 
-       
+
             this.productBusiness = productBusiness;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<ProductGetViewModel>> Get()
-            => productBusiness.Get<ProductGetViewModel>();
-        [HttpGet("{Id}")]
-        public async Task<Product> Get(string Id, string Name)
-         => productBusiness.Get(Id, Name);
+        public async Task<IActionResult> Get(string id, string name)
+        {
+            if (!string.IsNullOrEmpty(id) || !string.IsNullOrEmpty(name))
+                return Ok(productBusiness.Get(id, name));
+            else
+                return Ok(productBusiness.Get<ProductGetViewModel>());
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Product model)
         {
@@ -47,7 +50,7 @@ namespace Hepsifly.API.Controllers
             var Id = productBusiness.Update(model);
             return RedirectToAction("Get", new { Id });
         }
-        [HttpDelete("{Id}")]
+        [HttpDelete]
         public async Task<bool> Delete(string Id)
             => productBusiness.Delete(Id);
 

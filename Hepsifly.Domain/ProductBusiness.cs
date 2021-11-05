@@ -36,14 +36,14 @@ namespace Hepsifly.Domain
         public virtual IEnumerable<M> Get<M>()
         {
 
+            return products
+                .Aggregate()
+                .Lookup("Category", "CategoryId", "_id", @as: "Category")
+                .Unwind("Category")
+                .As<M>()
+                .ToList();
 
-            var ss = products.Aggregate()
-                      .Lookup("Category", "CategoryId", "_id", @as: "Category")
-                      .Unwind("Category")
-                    .As<M>()
-                    .ToList();
-
-            return ss;
+             
         }
         public virtual Product Get(string Id, string Name)
             => products.Find<Product>(c => c.Id == Id || c.Name == Name).FirstOrDefault();

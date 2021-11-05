@@ -26,11 +26,13 @@ namespace Hepsifly.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CategoryGetViewModel>> Get()
-            => categoryBusiness.Get<CategoryGetViewModel>();
-        [HttpGet("{Id}")]
-        public async Task<Category> Get(string Id, string Name)
-         => categoryBusiness.Get(Id, Name);
+        public async Task<IActionResult> Get(string id, string name)
+        {
+            if (!string.IsNullOrEmpty(id) || !string.IsNullOrEmpty(name))
+                return Ok(categoryBusiness.Get(id, name));
+            else
+                return Ok(categoryBusiness.Get<CategoryGetViewModel>());
+        }
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Category model)
         {
@@ -43,7 +45,7 @@ namespace Hepsifly.API.Controllers
             var Id = categoryBusiness.Update(model);
             return RedirectToAction("Get", new { Id });
         }
-        [HttpDelete("{Id}")]
+        [HttpDelete]
         public async Task<bool> Delete(string Id)
             => categoryBusiness.Delete(Id);
 

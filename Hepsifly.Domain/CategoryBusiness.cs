@@ -29,30 +29,26 @@ namespace Hepsifly.Domain
             this.collection = database.GetCollection<Category>(nameof(Category));
         }
 
-        public IEnumerable<M> Get<M>()
+        public virtual IEnumerable<M> Get<M>()
         {
-            throw new NotImplementedException();
+            return collection
+                .Aggregate()
+                .As<M>()
+                .ToList();
         }
-
-        public Category Get(string Id, string Name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string Add(Category model)
+        public virtual Category Get(string Id, string Name)
+            => collection.Find<Category>(c => c.Id == Id || c.Name == Name).FirstOrDefault();
+        public virtual string Add(Category model)
         {
             collection.InsertOne(model);
             return model.Id;
         }
-
-        public string Update(Category Model)
+        public virtual bool Delete(string Id)
+            => collection.DeleteOne(x => x.Id == Id).DeletedCount > 0;
+        public virtual string Update(Category Model)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(string Id)
-        {
-            throw new NotImplementedException();
+            collection.ReplaceOne(x => x.Id == Model.Id, Model);
+            return Model.Id;
         }
     }
 }
