@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservations</title>
+    <script src="reservations.js" defer></script>
+</head>
+<body>
+    <h1>Reservations</h1>
+    <form id="reservation-form">
+        <label for="product">Product</label>
+        <select id="product" name="productId"></select>
+        <br>
+        <label for="customer">Customer Name</label>
+        <input id="customer" name="customerName" required />
+        <br>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" />
+        <br>
+        <button type="submit">Save</button>
+    </form>
+    <h2>Existing Reservations</h2>
+    <ul id="reservation-list"></ul>
+</body>
+</html>
