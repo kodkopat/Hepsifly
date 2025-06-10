@@ -17,6 +17,7 @@ namespace Hepsifly.Infrastructure.Dependencies
             services.AddHttpContextAccessor();
             services.AddScoped<CategoryBusiness>();
             services.AddScoped<ProductBusiness>();
+            services.AddScoped<ReservationBusiness>();
             return services;
         }
     }

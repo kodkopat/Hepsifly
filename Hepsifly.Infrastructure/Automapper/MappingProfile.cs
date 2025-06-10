@@ -4,6 +4,7 @@ using System;
 using Hepsifly.Domain.Models;
 using Hepsifly.Domain.ViewModels.Category;
 using Hepsifly.Domain.ViewModels.Product;
+using Hepsifly.Domain.ViewModels.Reservation;
 
 namespace Hepsifly.Infrastructure.Automapper
 {
@@ -19,6 +20,10 @@ namespace Hepsifly.Infrastructure.Automapper
             #region Product
             CreateMap<Product, ProductGetViewModel>().ReverseMap();
             CreateMap<ProductSaveViewModel, Product>().ReverseMap();
+            #endregion
+            #region Reservation
+            CreateMap<Reservation, ReservationGetViewModel>().ReverseMap();
+            CreateMap<ReservationSaveViewModel, Reservation>().ReverseMap();
             #endregion
         }
     }
