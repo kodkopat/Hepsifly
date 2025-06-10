@@ -1,2 +1,2 @@
 # Hepsifly
-Hebusiburada firmasi icin ornek proje
+Hepsiburada firmasi icin ornek proje
