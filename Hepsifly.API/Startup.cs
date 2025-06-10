@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Hepsifly.Core;
+using Microsoft.Extensions.Hosting;
 
 namespace Hepsifly.API
 {
