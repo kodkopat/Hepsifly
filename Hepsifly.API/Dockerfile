@@ -1,10 +1,10 @@
 # See https://aka.ms/customizecontainer for information on customizing the container.
 # This Dockerfile builds the production container, which Visual Studio also uses for faster debugging.
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 COPY ["Hepsifly.API/Hepsifly.API.csproj", "Hepsifly.API/"]
 COPY ["Hepsifly.Core/Hepsifly.Core.csproj", "Hepsifly.Core/"]
